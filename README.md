@@ -126,13 +126,15 @@ El archivo `.nojekyll` ya está en la raíz. Después de activar Pages, GitHub m
 
 ## Bitácora de prompts
 
+Los prompts están resumidos para documentar el proceso; no son transcripciones literales.
+
 | # | Prompt de ajuste enviado | Problema que buscaba resolver | Resultado obtenido | ¿Funcionó? |
 |---|---|---|---|---|
-| 1 | Cambiar el tema del sitio y dejar de usar contenido personal. | El primer concepto era un portafolio y no correspondía al sitio deseado. | Se reorientó a Mundo Umami, una guía gastronómica sin datos personales. | Sí |
-| 2 | Usar una temática exótica de restaurantes y experiencias. | Faltaba una idea temática clara para el sitio. | Se crearon secciones de restaurantes, mercados, comida callejera y rutas conceptuales. | Sí |
-| 3 | Usar fotos reales y crear una guía con tres cambios manuales fáciles. | Las ilustraciones no daban el aspecto fotográfico pedido y faltaban instrucciones de práctica. | Se añadieron siete fotos locales con créditos y `GUIA_DE_CAMBIOS.md`. | Sí |
-| 4 | Subir el sitio al repositorio GitHub indicado. | El sitio debía quedar disponible en el repositorio del curso. | El usuario autenticó Git desde su terminal y publicó la rama `main`. | Sí |
-| 5 | Completar el README, incluidas las tablas de prompts y demás secciones. | El README conservaba marcadores pendientes y datos de publicación desactualizados. | Se completó el prompt maestro, la bitácora, los cambios manuales y el estado de Pages. | Sí |
+| 1 | Convierte la página en una guía de gastronomía y quita la presentación personal. | El contenido inicial no correspondía a la nueva temática deseada. | La página pasó a llamarse Mundo Umami y dejó de mostrar datos personales. | Sí |
+| 2 | Explora una estética más exótica e incluye restaurantes, mercados y planes culinarios. | Faltaban una identidad visual distinta y variedad de experiencias. | Se diseñaron secciones de exploración y seis rutas temáticas. | Sí |
+| 3 | Cambia las ilustraciones de las rutas por fotografías reales y guarda los créditos. | Las tarjetas no tenían el aspecto fotográfico solicitado ni fuentes documentadas. | Se añadieron siete fotos locales, textos alternativos y créditos de origen. | Sí |
+| 4 | Explica el proyecto y propón tres cambios sencillos que pueda hacer manualmente. | Hacía falta una guía práctica para entender y editar el sitio. | Se creó `GUIA_DE_CAMBIOS.md` con ejercicios para editar texto, fotos y colores. | Sí |
+| 5 | Completa el README con el propósito, estructura, decisiones de diseño, pruebas y registro del proceso. | La documentación tenía marcadores pendientes y datos incompletos. | Se completaron las secciones, la bitácora y los pasos de publicación. | Sí |
 
 ## Cambios manuales (sin IA)
 
