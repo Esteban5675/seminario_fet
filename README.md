@@ -28,7 +28,6 @@ El sitio usa fotografías reales descargadas localmente, con sus autores y enlac
 .
 ├── index.html
 ├── README.md
-├── GUIA_DE_CAMBIOS.md
 ├── .nojekyll
 └── assets/
     ├── PHOTO_CREDITS.md
@@ -103,15 +102,6 @@ Las fotos se guardaron en `assets/fotos/` para que el sitio no dependa de cargar
 
 Para repetir la revisión responsive, abre las herramientas de desarrollo del navegador, activa el modo responsive y prueba esos tres anchos. También puedes validar el documento en <https://validator.w3.org/>.
 
-## Publicar en GitHub Pages
-
-GitHub Pages todavía no está activado para este repositorio. El repositorio está en [github.com/Esteban5675/seminario_fet](https://github.com/Esteban5675/seminario_fet), con la rama `main`. Para activar GitHub Pages:
-
-1. Abre **Settings → Pages** en el repositorio.
-2. En **Build and deployment**, selecciona **Deploy from a branch**.
-3. Elige la rama `main` y la carpeta raíz (`/`), y guarda.
-4. Cuando GitHub muestre la URL publicada, ábrela y revisa el sitio en escritorio y móvil.
-
 El archivo `.nojekyll` ya está en la raíz. Después de activar Pages, GitHub mostrará la dirección pública del sitio en esa misma sección.
 
 ## Prompt maestro
@@ -122,7 +112,7 @@ El archivo `.nojekyll` ya está en la raíz. Después de activar Pages, GitHub m
 >
 > Presenta rutas gastronómicas conceptuales claramente marcadas como ideas, no como negocios reales. No inventes establecimientos, direcciones, precios, horarios, reseñas ni datos de contacto. Usa fotografías reales guardadas localmente en `assets/fotos/`, con texto alternativo fiel a lo que muestran y créditos de autor y origen en `assets/PHOTO_CREDITS.md`. Mantén iconos y marca como SVG propios.
 >
-> Incluye `README.md` completo y `GUIA_DE_CAMBIOS.md` con tres ejercicios manuales sencillos: editar un texto, reemplazar una foto actualizando `alt` y créditos, y cambiar tokens de color comprobando contrastes. Verifica HTML, fotos, comportamiento del menú, FAQ y formulario; reporta solo resultados realmente comprobados.
+> Incluye `README.md` completo. Verifica HTML, fotos, comportamiento del menú, FAQ y formulario; reporta solo resultados realmente comprobados.
 
 ## Bitácora de prompts
 
@@ -133,7 +123,7 @@ Los prompts están resumidos para documentar el proceso; no son transcripciones 
 | 1 | Convierte la página en una guía de gastronomía y quita la presentación personal. | El contenido inicial no correspondía a la nueva temática deseada. | La página pasó a llamarse Mundo Umami y dejó de mostrar datos personales. | Sí |
 | 2 | Explora una estética más exótica e incluye restaurantes, mercados y planes culinarios. | Faltaban una identidad visual distinta y variedad de experiencias. | Se diseñaron secciones de exploración y seis rutas temáticas. | Sí |
 | 3 | Cambia las ilustraciones de las rutas por fotografías reales y guarda los créditos. | Las tarjetas no tenían el aspecto fotográfico solicitado ni fuentes documentadas. | Se añadieron siete fotos locales, textos alternativos y créditos de origen. | Sí |
-| 4 | Explica el proyecto y propón tres cambios sencillos que pueda hacer manualmente. | Hacía falta una guía práctica para entender y editar el sitio. | Se creó `GUIA_DE_CAMBIOS.md` con ejercicios para editar texto, fotos y colores. | Sí |
+| 4 | Explica el proyecto y propón tres cambios que pueda hacer manualmente| Sí |
 | 5 | Completa el README con el propósito, estructura, decisiones de diseño, pruebas y registro del proceso. | La documentación tenía marcadores pendientes y datos incompletos. | Se completaron las secciones, la bitácora y los pasos de publicación. | Sí |
 
 ## Cambios manuales (sin IA)
@@ -142,8 +132,3 @@ Los prompts están resumidos para documentar el proceso; no son transcripciones 
 - Reemplaza una foto en `assets/fotos/` y actualiza su `src`, `alt` y crédito en `assets/PHOTO_CREDITS.md`.
 - Prueba otra combinación de ciruela y mango modificando `--color-brand` y `--color-accent` dentro de `@theme`; después comprueba sus contrastes.
 
-La explicación paso a paso está en [GUIA_DE_CAMBIOS.md](GUIA_DE_CAMBIOS.md).
-
-## Uso de IA
-
-Codex ayudó a estructurar y redactar el sitio, producir los SVG y preparar la guía. Las fotografías son recursos de terceros y están atribuidas en `assets/PHOTO_CREDITS.md`. El HTML, la carga de recursos, los flujos principales y los anchos indicados se verificaron en Chromium; la evaluación de accesibilidad de Lighthouse dio 100/100. El formulario sigue siendo una demostración local y no transmite mensajes.
