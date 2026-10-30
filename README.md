@@ -1,14 +1,26 @@
 # Mundo Umami
 
-Guía editorial de gastronomía viajera con ideas para explorar restaurantes, mercados, comida callejera y experiencias culinarias fuera de lo común. Las rutas son conceptuales, no establecimientos verificados. El sitio combina fotografías reales de Unsplash descargadas a `assets/fotos/` con iconos SVG propios. El formulario valida localmente y muestra una confirmación sin transmitir ni guardar los datos.
+Mundo Umami es una guía gastronómica editorial de una sola página. Reúne ideas para explorar restaurantes, mercados, comida callejera y experiencias culinarias. Las seis rutas son conceptos para inspirar planes; no son fichas ni recomendaciones verificadas de negocios reales.
+
+El sitio usa fotografías reales descargadas localmente, con sus autores y enlaces de origen registrados en [assets/PHOTO_CREDITS.md](assets/PHOTO_CREDITS.md). El formulario valida datos en el navegador y enseña una confirmación de demostración: no envía ni guarda mensajes.
+
+## Contenido del proyecto
+
+- **Inicio:** presenta la guía y permite ir a restaurantes o experiencias.
+- **Explorar:** seis categorías, como restaurantes, mercados, talleres y degustaciones.
+- **Restaurantes y rutas:** seis planes conceptuales acompañados por fotografías.
+- **La guía:** explica el propósito editorial y cómo interpretar las rutas.
+- **Preguntas frecuentes:** acordeón que permite abrir una pregunta a la vez.
+- **Contacto:** formulario de demostración con validación accesible.
+- **Pie de página:** navegación, recordatorio de confirmar los datos con cada establecimiento y año automático.
 
 ## Tecnologías
 
 - HTML5 semántico.
 - Tailwind CSS 4 mediante Play CDN fijado a `@tailwindcss/browser@4.3.3`.
-- JavaScript puro para navegación móvil, tema, secciones activas, acordeón, validación y toast.
-- Fotografías locales de Unsplash y elementos vectoriales SVG creados para este proyecto.
-- Google Fonts: Space Grotesk para títulos e Inter para texto, con fuentes de sistema como respaldo.
+- JavaScript puro para el menú móvil, tema claro/oscuro, navegación activa, FAQ, formulario y toast.
+- Siete fotografías locales de Unsplash, más iconos y marca en SVG.
+- Google Fonts: Space Grotesk para títulos e Inter para textos, con respaldo de fuentes de sistema.
 
 ## Estructura de carpetas
 
@@ -23,25 +35,33 @@ Guía editorial de gastronomía viajera con ideas para explorar restaurantes, me
     ├── favicon.svg
     ├── sello-mesa.svg
     ├── fotos/
-    │   └── *.jpg
+    │   ├── hero-restaurante.jpg
+    │   ├── especias-mercado.jpg
+    │   ├── mercado-frutas.jpg
+    │   ├── puesto-nocturno.jpg
+    │   ├── fermentos.jpg
+    │   ├── postre.jpg
+    │   └── cocina-al-fuego.jpg
     └── icono-*.svg
 ```
 
-Las tarjetas están escritas directamente en `index.html` para facilitar la edición. Las fotografías se guardan localmente y sus autores y páginas de origen están en [assets/PHOTO_CREDITS.md](assets/PHOTO_CREDITS.md).
+Las tarjetas están escritas directamente en `index.html` para que se puedan editar sin generar contenido con JavaScript. El archivo `assets/PHOTO_CREDITS.md` documenta las fotografías, autores y páginas de origen.
 
 ## Abrir en local
 
-Abre `index.html` en el navegador, o ejecuta desde esta carpeta:
+Abre `index.html` en el navegador, o inicia un servidor local desde la carpeta del proyecto:
 
 ```bash
 npx serve .
 ```
 
-El CDN de Tailwind y Google Fonts requieren conexión a internet. Las fotografías y los SVG están incluidos localmente en `assets/`.
+El servidor mostrará la dirección local donde quedó disponible la página. Tailwind Play CDN y Google Fonts requieren conexión a internet. Las fotos y los SVG se cargan desde el mismo proyecto.
 
 ## Decisiones de diseño
 
-Tema editorial de sobremesa con reparto 60-30-10: superficies cálidas como base, ciruela profunda para las áreas de marca y mango para las llamadas a la acción. Las fotografías aportan escenas reales de puestos nocturnos, frutas, especias, fermentos, postres y cocina al fuego. Los iconos SVG conservan la identidad ilustrada del proyecto. En modo oscuro se conservan marca y acento mientras se adaptan superficies, texto, bordes y campos.
+La paleta sigue una proporción visual 60-30-10: superficies cálidas para el fondo, ciruela profunda para navegación, hero y pie, y mango para botones y detalles. El verde jade y el tono guayaba aparecen en los SVG decorativos. En modo oscuro se conservan marca y acento, y se adaptan superficies, texto y bordes.
+
+La tipografía es Space Grotesk (500 y 700) para títulos e Inter (400, 500 y 600) para textos. El diseño es mobile-first y utiliza los breakpoints `sm` (640 px), `md` (768 px) y `lg` (1024 px), un contenedor de hasta `max-w-6xl` y `scroll-mt-20` para que los títulos no queden cubiertos por la navegación fija.
 
 | Par de texto y fondo | Contraste calculado | Uso |
 |---|---:|---|
@@ -55,58 +75,73 @@ Tema editorial de sobremesa con reparto 60-30-10: superficies cálidas como base
 | `#C5B5C9` sobre `#241B2A` | 8.56:1 | Texto secundario sobre panel oscuro |
 | `#FDA29B` sobre `#241B2A` | 8.55:1 | Errores en modo oscuro |
 
-Tipografía: Space Grotesk (500 y 700) en títulos; Inter (400, 500 y 600) para textos. El diseño es mobile-first y usa los breakpoints `sm` (640 px), `md` (768 px) y `lg` (1024 px). Se conserva un contenedor de hasta `max-w-6xl`, secciones con espacio adaptable y `scroll-mt-20` por la navegación fija. Los contrastes se calcularon con la fórmula WCAG; deben volver a revisarse si se cambian los colores.
+Los valores se calcularon con la fórmula de contraste WCAG. Si cambias los tokens de color, vuelve a comprobarlos antes de publicar.
 
-## Accesibilidad aplicada
+## Accesibilidad y comportamiento
 
-- `lang="es-CO"`, jerarquía semántica, un H1 y enlace para saltar al contenido.
-- Foco visible, labels asociados, controles táctiles amplios y navegación por teclado.
-- Fotografías informativas con texto alternativo; iconos decorativos ocultos a lectores de pantalla.
-- Menú móvil con estados ARIA, enlaces activos y acordeón de panel único.
-- Formulario con errores asociados, `aria-invalid` y foco en el primer campo inválido.
-- Preferencia de tema guardada en `localStorage` con respaldo del sistema; movimiento reducido respetado.
-- Las rutas están identificadas como ideas conceptuales; las fotografías tienen texto alternativo y crédito en `assets/PHOTO_CREDITS.md`.
-- Las imágenes se sirven desde el propio proyecto; el único CDN de contenido visual es Google Fonts para tipografía.
+- Idioma `es-CO`, un único H1, estructura semántica y enlace para saltar al contenido.
+- Texto alternativo descriptivo en fotografías y `alt=""` en iconos decorativos.
+- Foco visible, navegación por teclado, áreas táctiles amplias y etiquetas asociadas a los campos.
+- Menú móvil con `aria-expanded`, Escape, cierre al hacer clic fuera, seleccionar un enlace o ampliar la ventana.
+- Enlace activo actualizado según la sección visible.
+- Acordeón de panel único y controles con `aria-controls` y `aria-expanded`.
+- Errores del formulario con texto, `aria-invalid`, `aria-describedby` y foco en el primer campo inválido.
+- Toast de confirmación con región viva, cierre manual y cierre automático a los cuatro segundos.
+- Preferencia de tema guardada en `localStorage`; si no existe, se respeta el tema del sistema. Se considera `prefers-reduced-motion`.
+- Las rutas están identificadas como ideas conceptuales; no se inventan establecimientos, precios, direcciones, reseñas ni horarios.
+
+## Fotografías y créditos
+
+Las fotos se guardaron en `assets/fotos/` para que el sitio no dependa de cargar imágenes desde Unsplash al abrirlo. Consulta [assets/PHOTO_CREDITS.md](assets/PHOTO_CREDITS.md) para ver cada autor y la página de origen. Al reemplazar una foto, actualiza también su texto alternativo y ese archivo de créditos.
+
+## Verificación realizada
+
+- `npx --yes html-validate index.html`: pasó sin errores.
+- Chromium con Playwright: revisé 375, 768 y 1280 px; el ancho del documento coincidió con el viewport y cargaron las fotos e iconos.
+- Comprobé menú con Escape y retorno del foco, acordeón de panel único, foco en el primer error, envío local del formulario, limpieza de campos y cambio de tema. No hubo errores de consola.
+- Lighthouse, categoría Accesibilidad: 100/100; no reportó auditorías binarias fallidas.
+
+Para repetir la revisión responsive, abre las herramientas de desarrollo del navegador, activa el modo responsive y prueba esos tres anchos. También puedes validar el documento en <https://validator.w3.org/>.
 
 ## Publicar en GitHub Pages
 
-1. Sube los archivos a la rama del repositorio que quieras publicar.
-2. En GitHub abre **Settings → Pages**.
-3. Selecciona **Deploy from a branch**, elige la rama y la carpeta raíz (`/`).
-4. Guarda y espera a que Pages publique el sitio. `.nojekyll` ya está en la raíz.
-5. Abre la URL publicada y revisa las fotografías y el formulario en móvil y escritorio.
+GitHub Pages todavía no está activado para este repositorio. El repositorio está en [github.com/Esteban5675/seminario_fet](https://github.com/Esteban5675/seminario_fet), con la rama `main`. Para activar GitHub Pages:
 
-No se configuró un remoto ni se publicó el sitio.
+1. Abre **Settings → Pages** en el repositorio.
+2. En **Build and deployment**, selecciona **Deploy from a branch**.
+3. Elige la rama `main` y la carpeta raíz (`/`), y guarda.
+4. Cuando GitHub muestre la URL publicada, ábrela y revisa el sitio en escritorio y móvil.
 
-## Verificación y pasos manuales
-
-- `npx --yes html-validate index.html`: pasó sin errores.
-- Chromium con Playwright: revisé 375, 768 y 1280 px; no hay desbordamiento horizontal ni imágenes rotas.
-- Revisé menú, acordeón, validación y envío local de demostración del formulario y cambio de tema; sin errores de consola.
-- Lighthouse, categoría Accesibilidad: 100/100, sin auditorías binarias fallidas.
-
-Para una revisión manual adicional, abre DevTools, activa modo responsive (F12 → modo responsive) y revisa esos tres anchos. También puedes validar en <https://validator.w3.org/>.
+El archivo `.nojekyll` ya está en la raíz. Después de activar Pages, GitHub mostrará la dirección pública del sitio en esa misma sección.
 
 ## Prompt maestro
 
-(pegar aquí la versión 1)
+> Crea y mantén una página web estática de una sola página llamada **Mundo Umami**, una guía editorial de gastronomía viajera sobre restaurantes, mercados, comida callejera y experiencias culinarias. No incluyas portafolios ni datos personales. Escribe en español de Colombia, con tono claro y cercano.
+>
+> Usa HTML5, Tailwind CSS 4 mediante Play CDN fijado a `https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3` y JavaScript puro. No añadas frameworks ni librerías. Conserva diseño mobile-first, landmarks semánticos, un solo H1, navegación por anclas, menú móvil accesible, modo claro/oscuro, navegación activa, FAQ de panel único y formulario accesible con validación en navegador. Respeta foco visible, movimiento reducido y contraste WCAG AA.
+>
+> Presenta rutas gastronómicas conceptuales claramente marcadas como ideas, no como negocios reales. No inventes establecimientos, direcciones, precios, horarios, reseñas ni datos de contacto. Usa fotografías reales guardadas localmente en `assets/fotos/`, con texto alternativo fiel a lo que muestran y créditos de autor y origen en `assets/PHOTO_CREDITS.md`. Mantén iconos y marca como SVG propios.
+>
+> Incluye `README.md` completo y `GUIA_DE_CAMBIOS.md` con tres ejercicios manuales sencillos: editar un texto, reemplazar una foto actualizando `alt` y créditos, y cambiar tokens de color comprobando contrastes. Verifica HTML, fotos, comportamiento del menú, FAQ y formulario; reporta solo resultados realmente comprobados.
 
 ## Bitácora de prompts
 
 | # | Prompt de ajuste enviado | Problema que buscaba resolver | Resultado obtenido | ¿Funcionó? |
 |---|---|---|---|---|
-| 1 | (pendiente) | (pendiente) | (pendiente) | (pendiente) |
-| 2 | (pendiente) | (pendiente) | (pendiente) | (pendiente) |
-| 3 | (pendiente) | (pendiente) | (pendiente) | (pendiente) |
-| 4 | (pendiente) | (pendiente) | (pendiente) | (pendiente) |
-| 5 | (pendiente) | (pendiente) | (pendiente) | (pendiente) |
+| 1 | Cambiar el tema del sitio y dejar de usar contenido personal. | El primer concepto era un portafolio y no correspondía al sitio deseado. | Se reorientó a Mundo Umami, una guía gastronómica sin datos personales. | Sí |
+| 2 | Usar una temática exótica de restaurantes y experiencias. | Faltaba una idea temática clara para el sitio. | Se crearon secciones de restaurantes, mercados, comida callejera y rutas conceptuales. | Sí |
+| 3 | Usar fotos reales y crear una guía con tres cambios manuales fáciles. | Las ilustraciones no daban el aspecto fotográfico pedido y faltaban instrucciones de práctica. | Se añadieron siete fotos locales con créditos y `GUIA_DE_CAMBIOS.md`. | Sí |
+| 4 | Subir el sitio al repositorio GitHub indicado. | El sitio debía quedar disponible en el repositorio del curso. | El usuario autenticó Git desde su terminal y publicó la rama `main`. | Sí |
+| 5 | Completar el README, incluidas las tablas de prompts y demás secciones. | El README conservaba marcadores pendientes y datos de publicación desactualizados. | Se completó el prompt maestro, la bitácora, los cambios manuales y el estado de Pages. | Sí |
 
 ## Cambios manuales (sin IA)
 
-- (pendiente)
-- (pendiente)
-- (pendiente)
+- Cambia el titular de inicio buscando `id="titulo-inicio"` en `index.html`.
+- Reemplaza una foto en `assets/fotos/` y actualiza su `src`, `alt` y crédito en `assets/PHOTO_CREDITS.md`.
+- Prueba otra combinación de ciruela y mango modificando `--color-brand` y `--color-accent` dentro de `@theme`; después comprueba sus contrastes.
+
+La explicación paso a paso está en [GUIA_DE_CAMBIOS.md](GUIA_DE_CAMBIOS.md).
 
 ## Uso de IA
 
-El sitio se generó con ayuda de Codex a partir de instrucciones de diseño y fue revisado por el autor. Para entenderlo y practicar tres ediciones sencillas, consulta [GUIA_DE_CAMBIOS.md](GUIA_DE_CAMBIOS.md).
+Codex ayudó a estructurar y redactar el sitio, producir los SVG y preparar la guía. Las fotografías son recursos de terceros y están atribuidas en `assets/PHOTO_CREDITS.md`. El HTML, la carga de recursos, los flujos principales y los anchos indicados se verificaron en Chromium; la evaluación de accesibilidad de Lighthouse dio 100/100. El formulario sigue siendo una demostración local y no transmite mensajes.
