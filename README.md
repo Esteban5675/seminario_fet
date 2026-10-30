@@ -1,14 +1,14 @@
-# Portafolio de Esteban Oliveros
+# Mundo Umami
 
-Sitio de una sola página para presentar servicios de desarrollo, proyectos, experiencia y un formulario de contacto. El formulario valida los datos localmente y muestra una confirmación; no transmite ni almacena la información.
+Guía editorial de gastronomía viajera con ideas para explorar restaurantes, mercados, comida callejera y experiencias culinarias fuera de lo común. Las rutas son conceptuales, no establecimientos verificados. El sitio combina fotografías reales de Unsplash descargadas a `assets/fotos/` con iconos SVG propios. El formulario valida localmente y muestra una confirmación sin transmitir ni guardar los datos.
 
 ## Tecnologías
 
 - HTML5 semántico.
 - Tailwind CSS 4 mediante Play CDN fijado a `@tailwindcss/browser@4.3.3`.
-- JavaScript puro para menú, tema, navegación activa, acordeón, validación y toast.
-- SVG propios almacenados en `assets/`.
-- Google Fonts: Space Grotesk para títulos e Inter para texto; se usan fuentes de sistema como respaldo.
+- JavaScript puro para navegación móvil, tema, secciones activas, acordeón, validación y toast.
+- Fotografías locales de Unsplash y elementos vectoriales SVG creados para este proyecto.
+- Google Fonts: Space Grotesk para títulos e Inter para texto, con fuentes de sistema como respaldo.
 
 ## Estructura de carpetas
 
@@ -16,72 +16,76 @@ Sitio de una sola página para presentar servicios de desarrollo, proyectos, exp
 .
 ├── index.html
 ├── README.md
+├── GUIA_DE_CAMBIOS.md
 ├── .nojekyll
 └── assets/
-    ├── avatar.svg
+    ├── PHOTO_CREDITS.md
     ├── favicon.svg
-    ├── hero.svg
-    ├── icono-*.svg
-    └── proyecto-*.svg
+    ├── sello-mesa.svg
+    ├── fotos/
+    │   └── *.jpg
+    └── icono-*.svg
 ```
 
-Las tarjetas del contenido están escritas directamente en `index.html` para que sea fácil editarlas sin JavaScript. No se añadieron fotografías ni recursos SVG externos.
+Las tarjetas están escritas directamente en `index.html` para facilitar la edición. Las fotografías se guardan localmente y sus autores y páginas de origen están en [assets/PHOTO_CREDITS.md](assets/PHOTO_CREDITS.md).
 
 ## Abrir en local
 
-Puedes abrir `index.html` directamente en el navegador. Para servirlo por HTTP desde la carpeta del proyecto, también puedes ejecutar:
+Abre `index.html` en el navegador, o ejecuta desde esta carpeta:
 
 ```bash
 npx serve .
 ```
 
-El CSS de Tailwind, las fuentes y el CDN requieren conexión a internet. Los SVG propios y el HTML quedan en el proyecto.
+El CDN de Tailwind y Google Fonts requieren conexión a internet. Las fotografías y los SVG están incluidos localmente en `assets/`.
 
 ## Decisiones de diseño
 
-La interfaz sigue la distribución visual 60-30-10: superficies claras u oscuras para el fondo, verde profundo para las áreas de marca y amarillo cálido para llamadas a la acción y detalles. En modo oscuro se conservan los tonos de marca y acento; cambian superficies, texto, bordes y campos.
+Tema editorial de sobremesa con reparto 60-30-10: superficies cálidas como base, ciruela profunda para las áreas de marca y mango para las llamadas a la acción. Las fotografías aportan escenas reales de puestos nocturnos, frutas, especias, fermentos, postres y cocina al fuego. Los iconos SVG conservan la identidad ilustrada del proyecto. En modo oscuro se conservan marca y acento mientras se adaptan superficies, texto, bordes y campos.
 
-| Par de texto y fondo | Contraste indicado | Uso |
+| Par de texto y fondo | Contraste calculado | Uso |
 |---|---:|---|
-| `#12372A` sobre `#F6F8F4` | 12.24:1 | Texto principal en modo claro |
-| `#3F5A4E` sobre `#F6F8F4` | 7.06:1 | Texto secundario en modo claro |
-| `#12372A` sobre `#E3A72F` | 6.13:1 | Texto de botones de acento |
-| `#FFFFFF` sobre `#12372A` | 13.08:1 | Texto en hero, navbar y footer |
+| `#321C35` sobre `#FFF7ED` | 14.62:1 | Texto principal claro |
+| `#66536B` sobre `#FFF7ED` | 6.56:1 | Texto secundario claro |
+| `#30183D` sobre `#F7B84B` | 9.00:1 | Texto de botones de acento |
+| `#FFFFFF` sobre `#30183D` | 15.86:1 | Texto en hero, navegación y pie |
 | `#FFFFFF` sobre `#146C43` | 6.45:1 | Confirmación del formulario |
-| `#B42318` sobre `#F6F8F4` | 6.15:1 | Errores en modo claro |
-| `#E8F0EA` sobre `#0E1714` | 15.71:1 | Texto principal en modo oscuro |
-| `#A9BDB1` sobre `#16251F` | 8.04:1 | Texto secundario sobre panel oscuro |
-| `#FDA29B` sobre `#16251F` | 8.20:1 | Errores en modo oscuro |
+| `#B42318` sobre `#FFF7ED` | 6.19:1 | Errores en modo claro |
+| `#F5EEF5` sobre `#17121B` | 16.18:1 | Texto principal oscuro |
+| `#C5B5C9` sobre `#241B2A` | 8.56:1 | Texto secundario sobre panel oscuro |
+| `#FDA29B` sobre `#241B2A` | 8.55:1 | Errores en modo oscuro |
 
-Tipografía: Space Grotesk (500 y 700) para títulos; Inter (400, 500 y 600) para texto. Breakpoints mobile-first de Tailwind: `sm` (640 px), `md` (768 px) y `lg` (1024 px). El contenedor principal llega a `max-w-6xl`; las secciones usan separación vertical adaptable y margen de desplazamiento para la navegación fija. Los valores de contraste anteriores corresponden a los pares definidos para el tema; los cambios posteriores de color deben volver a comprobarse.
+Tipografía: Space Grotesk (500 y 700) en títulos; Inter (400, 500 y 600) para textos. El diseño es mobile-first y usa los breakpoints `sm` (640 px), `md` (768 px) y `lg` (1024 px). Se conserva un contenedor de hasta `max-w-6xl`, secciones con espacio adaptable y `scroll-mt-20` por la navegación fija. Los contrastes se calcularon con la fórmula WCAG; deben volver a revisarse si se cambian los colores.
 
 ## Accesibilidad aplicada
 
-- Idioma `es-CO`, estructura semántica, un solo H1, título y descripción de página.
-- Enlace para saltar al contenido, foco visible, etiquetas explícitas, controles con áreas táctiles amplias y navegación por teclado.
-- SVG informativos con texto alternativo y SVG decorativos con texto alternativo vacío.
-- Menú con estado ARIA, enlace actual de navegación, acordeón de panel único y errores textuales asociados con `aria-describedby`.
-- Formulario con `aria-invalid`, foco en el primer campo inválido y región de confirmación viva.
-- Modo oscuro con preferencia guardada o preferencia del sistema; preferencia de movimiento reducido para desplazamiento y transiciones.
+- `lang="es-CO"`, jerarquía semántica, un H1 y enlace para saltar al contenido.
+- Foco visible, labels asociados, controles táctiles amplios y navegación por teclado.
+- Fotografías informativas con texto alternativo; iconos decorativos ocultos a lectores de pantalla.
+- Menú móvil con estados ARIA, enlaces activos y acordeón de panel único.
+- Formulario con errores asociados, `aria-invalid` y foco en el primer campo inválido.
+- Preferencia de tema guardada en `localStorage` con respaldo del sistema; movimiento reducido respetado.
+- Las rutas están identificadas como ideas conceptuales; las fotografías tienen texto alternativo y crédito en `assets/PHOTO_CREDITS.md`.
+- Las imágenes se sirven desde el propio proyecto; el único CDN de contenido visual es Google Fonts para tipografía.
 
 ## Publicar en GitHub Pages
 
-1. Crea un repositorio en GitHub y agrega estos archivos a la rama que quieras publicar.
-2. En el repositorio abre **Settings → Pages**.
-3. En **Build and deployment**, selecciona **Deploy from a branch**, elige la rama y la carpeta raíz (`/`).
-4. Guarda y espera a que Pages publique el sitio. El archivo `.nojekyll` está incluido en la raíz.
-5. Abre la URL que GitHub Pages muestre y confirma que los recursos SVG carguen correctamente.
+1. Sube los archivos a la rama del repositorio que quieras publicar.
+2. En GitHub abre **Settings → Pages**.
+3. Selecciona **Deploy from a branch**, elige la rama y la carpeta raíz (`/`).
+4. Guarda y espera a que Pages publique el sitio. `.nojekyll` ya está en la raíz.
+5. Abre la URL publicada y revisa las fotografías y el formulario en móvil y escritorio.
 
 No se configuró un remoto ni se publicó el sitio.
 
 ## Verificación y pasos manuales
 
-- `npx --yes html-validate index.html`: validación completada sin errores.
-- Chromium 150 con Playwright 1.64.1: capturas y revisión a 375, 768 y 1280 px. El ancho del documento coincide con el viewport y no hay imágenes rotas.
-- Chromium/Playwright: sin errores de consola ni excepciones; menú abre y cierra con Escape devolviendo el foco; el acordeón mantiene un panel abierto; el formulario enfoca el primer error y, al completar datos válidos, limpia los campos y presenta el toast.
-- Lighthouse, categoría Accesibilidad: 100/100. No reportó auditorías binarias fallidas.
+- `npx --yes html-validate index.html`: pasó sin errores.
+- Chromium con Playwright: revisé 375, 768 y 1280 px; no hay desbordamiento horizontal ni imágenes rotas.
+- Revisé menú, acordeón, validación y envío local de demostración del formulario y cambio de tema; sin errores de consola.
+- Lighthouse, categoría Accesibilidad: 100/100, sin auditorías binarias fallidas.
 
-Para una revisión manual adicional, abre DevTools, activa el modo responsive (F12 → modo responsive) y comprueba 375 px, 768 px y 1280 px. También puedes revisar el HTML en <https://validator.w3.org/> y ejecutar Lighthouse en Chrome. No se han añadido resultados manuales adicionales.
+Para una revisión manual adicional, abre DevTools, activa modo responsive (F12 → modo responsive) y revisa esos tres anchos. También puedes validar en <https://validator.w3.org/>.
 
 ## Prompt maestro
 
@@ -105,4 +109,4 @@ Para una revisión manual adicional, abre DevTools, activa el modo responsive (F
 
 ## Uso de IA
 
-El sitio se generó con ayuda de Codex a partir de un prompt maestro y fue revisado por el autor.
+El sitio se generó con ayuda de Codex a partir de instrucciones de diseño y fue revisado por el autor. Para entenderlo y practicar tres ediciones sencillas, consulta [GUIA_DE_CAMBIOS.md](GUIA_DE_CAMBIOS.md).
